@@ -3,11 +3,11 @@
 <div class="clear"></div>
 <br />
 
-<div>Adding support for your library only requires a few pieces of information for us to write the requried code.  If you are a developer you can probably write the code and email it to us and share with the world!</div>
+<div>Book Burro is looking to expand our library system support.  If we currently do not have your local library listed you still have a couple of options.  Adding support for your library only requires a few pieces of information for us to write the required code.  If you are a developer you can probably write the code and email it to us and share with the world!</div>
 <br />
 <h3>If you aren't a coder:</h3>
 
-<p>Gather the following information and email <a href="mailto:anotherjesse@gmail.com">anotherjesse@gmail.com</a></p>
+<p>Gather the following information and email <a href="mailto:bookburro@ang.st">bookburro@ang.st</a></p>
 
 <textarea style="height:7em">Name of library:
 Address of library:
@@ -17,22 +17,25 @@ URL of catalog search page:
 <br /><br />
 <h3>If you are a coder:</h3>
 
-<p>By creating a file called <b>custom.js</b> in the bookburro folder in your firefox profile directory, you can quickly determine the proper code to add your library.</p>
+<p>By creating a file called <b>custom.js</b> in the bookburro folder in your Firefox profile directory, you can quickly determine the proper code to add your library.  Text following '//' are comments and can be omitted from your custom.js file.</p>
 
 <pre>var libraries = [
   {
      name: 'country_code.state_code.name_of_library',
      title: 'Human Readabily Name',
-     link: 'http://example.com/?q=#{ISBN}",
-     have: ['0394839129'],
-     dont: ['0967865204'],
-     missing: 'found no matches'
+     link: 'http://example.com/?q=#{ISBN}",  //See *1
+     have: '0394839129', //ISBN Library has
+     dont: '0967865204', //ISBN Library dosen't have
+     missing: 'found no matches'  //See *2
   }
 ];</pre>
 
+*1 - The shorter the better.  Try to narrow down the url to just the basics required for the query.<br/>
+*2 - This is text that appears on the search results page denoting not books found.<br/><br/>
+<p>To add multiple libraries to your custom.js file, simply add a comma after the closing } and copy/paste/alter the information between { and } (including { and }).</p>
 <p>To build the final url for an ISBN on your library, the link value is modified and #{ISBN} is replaced by the ISBN of the book.</p>
 
-<p>After you create the file, each time you open the book burro panel it will reload this file.  So keep tweaking the file until it works!</p>
+<p>After you create the file, each time you open the book burro panel it will reload this file.  So keep tweaking the file until it works! If you do get stuck, send the code from your custom.js to <a href="mailto:bookburro@ang.st">bookburro@ang.st</a> and one of the Book Burro volunteers will help you out.</p>
 
 <p>You can check out existing library entries at <a href="chrome://bookburro/content/data/libraries.js">chrome://bookburro/content/data/libraries.js</a> if have bookburro installed.</p>
 
